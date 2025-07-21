@@ -14,7 +14,7 @@ public class LibreriaTest {
         Libro libro = new Libro("Miss Bee e il principe d'inverno", "Alessia Gazzola",
                 "9788830462694", "Giallo",2, "letto");
 
-        libreria.aaggiungiLibro(libro);
+        libreria.aggiungiLibro(libro);
 
         List<Libro> libri = libreria.getLibri();
         assertEquals(1, libri.size());

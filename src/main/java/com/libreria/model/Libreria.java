@@ -11,7 +11,7 @@ public class Libreria {
         this.libri = new ArrayList<>();
     }
 
-    public void aaggiungiLibro(Libro libro) {
+    public void aggiungiLibro(Libro libro) {
         libri.add(libro);
     }
 

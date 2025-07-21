@@ -35,14 +35,17 @@ public class InterfacciaGrafica extends JFrame {
         //Pannelo filtri e ricerca
         JPanel pannelloTop = new JPanel(new FlowLayout(FlowLayout.LEFT));
 
+        //Menù a tendina
         JLabel statoLabel = new JLabel("Stato: ");
         String[] stati = {"Tutti", "letto", "da leggere", "in lettura"};
         filtroStato = new JComboBox<>(stati);
 
+        //Menù a tendina
         JLabel ordinaLabel = new JLabel("Ordina per: ");
         String[] criteriOrdinamento = {"Titolo", "Autore", "Genere", "Valutazione"};
         filtroOrdine = new JComboBox<>(criteriOrdinamento);
 
+        //Barra di ricerca
         JLabel ricercaLabel = new JLabel("Ricerca: ");
         campoRicerca = new JTextField(15);
 
@@ -94,8 +97,10 @@ public class InterfacciaGrafica extends JFrame {
     }
 
     private void aggiornaTabella() {
+        // statoFiltro - criterioOrdinamento -> valore scleto all'interno della ComboBox filtrare - ordinare
         String statoFiltro = ((JComboBox<String>) ((JPanel) getContentPane().getComponent(0)).getComponent(1)).getSelectedItem().toString();
         String criterioOrdinamento = ((JComboBox<String>) ((JPanel) getContentPane().getComponent(0)).getComponent(3)).getSelectedItem().toString();
+        // testo che viene digitato all'interno della barra di ricerca e viene convertito in LowerCase
         String ricerca = ((JTextField) ((JPanel) getContentPane().getComponent(0)).getComponent(5)).getText().toLowerCase();
 
         //Clona la lista per non modificare l'originale
@@ -139,7 +144,7 @@ public class InterfacciaGrafica extends JFrame {
     private void aggiungiLibro() {
         Libro nuovo = mostraDialogoLibro(null);
         if (nuovo != null) {
-            libreria.aaggiungiLibro(nuovo);
+            libreria.aggiungiLibro(nuovo);
             GestoreFile.salvaLibri(libreria.getLibri());
             aggiornaTabella();
         }
